@@ -8,6 +8,26 @@ $password="password"; #Subsitute MySQL Password
 $database="minecraft"; #Susitute Database Name
 $dbhost="localhost"; #Subsitute Database Host
 
+#Localization Strings
+#To Translators: Edit these strings
+$ticketid="Ticket ID";
+$userid="User ID";
+$modid="Mod ID";
+$mtimestamp="Time of acceptance(DD/MM/YY)";
+$modcomment="Mod Comment";
+$timestamp="Time of submission (DD/MM/YY)";
+$world="World";
+$xpos="X Position";
+$ypos="Y Position";
+$zpos="Z Position";
+$yaw="Yaw";
+$pitch="Pitch";
+$tickdesc="Ticket description";
+$tickcomp="Ticket Status";
+$notified="User notified?";
+$name="Username";
+$banned="Is Banned?";
+#Localization Strings end
 mysql_connect($dbhost,$username,$password);
 @mysql_select_db($database) or die( "Unable to select database");
 $query="SELECT * FROM reportrts_request";
@@ -20,21 +40,22 @@ mysql_close();
 <table border="1" cellspacing="2" cellpadding="2">
 <tr>
 
-<td><font face="Arial, Helvetica, sans-serif">Ticket ID</font></td>
-<td><font face="Arial, Helvetica, sans-serif">User ID</font></td>
-<td><font face="Arial, Helvetica, sans-serif">Mod ID</font></td>
-<td><font face="Arial, Helvetica, sans-serif">Time of acceptance(DD/MM/YY)</font></td>
-<td><font face="Arial, Helvetica, sans-serif">Mod Comment</font></td>
-<td><font face="Arial, Helvetica, sans-serif">Time of submission (DD/MM/YY)</font></td>
-<td><font face="Arial, Helvetica, sans-serif">World</font></td>
-<td><font face="Arial, Helvetica, sans-serif">X Position</font></td>
-<td><font face="Arial, Helvetica, sans-serif">Y Position</font></td>
-<td><font face="Arial, Helvetica, sans-serif">Z Position</font></td>
-<td><font face="Arial, Helvetica, sans-serif">Yaw</font></td>
-<td><font face="Arial, Helvetica, sans-serif">Pitch</font></td>
-<td><font face="Arial, Helvetica, sans-serif">Ticket description</font></td>
-<td><font face="Arial, Helvetica, sans-serif">Ticket completed?</font></td>
-<td><font face="Arial, Helvetica, sans-serif">User Notified?</font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $ticketid; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $userid; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $modid; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $mtimestamp; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $modcomment; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $timestamp; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $world; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $xpos; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $ypos; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $zpos; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $yaw; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $pitch; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $tickdesc; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $tickcomp; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $notified; ?></font></td>
+
 </tr>
 
 <?php
@@ -95,25 +116,25 @@ mysql_close();
 <table border="1" cellspacing="2" cellpadding="2">
 <tr>
 
-<td><font face="Arial, Helvetica, sans-serif">User ID</font></td>
-<td><font face="Arial, Helvetica, sans-serif">Username</font></td>
-<td><font face="Arial, Helvetica, sans-serif">Is Banned?</font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $userid; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $name; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $banned; ?></font></td>
 </tr>
 
 <?php
 $i=0;
 while ($i < $num) {
 
-$f1=mysql_result($result,$i,"id");
-$f2=mysql_result($result,$i,"name");
-$f3=mysql_result($result,$i,"banned");
+$g1=mysql_result($result,$i,"id");
+$g2=mysql_result($result,$i,"name");
+$g3=mysql_result($result,$i,"banned");
 ?>
 
 
 <tr>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $f1; ?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $f2; ?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $f3; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $g1; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $g2; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $g3; ?></font></td>
 </tr>
 
 <?php
